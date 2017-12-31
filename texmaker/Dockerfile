@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-LABEL maintainer "Colin Nelson <colinnlsn@gmail.com>"
+LABEL maintainer "Colin Nelson <colin@ifdevthentalk.com>"
 
 RUN apt-get update && \
     apt-get install -y\

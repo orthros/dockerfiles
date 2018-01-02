@@ -53,8 +53,17 @@ RUN apt-get update && \
 
 RUN update-ca-certificates
 
+# Add a user
+ENV HOME /home/discord
+RUN useradd --create-home --home-dir $HOME discord \
+     && chown -R discord:discord $HOME
+
+WORKDIR $HOME
+
 RUN curl -Lo discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
 
 RUN dpkg -i discord.deb
+
+USER discord
 
 CMD ["discord"]

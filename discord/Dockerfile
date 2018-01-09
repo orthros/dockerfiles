@@ -1,5 +1,5 @@
-# DESCRIPTION:	  Create the Discord editor in a container
-# AUTHOR:		  Colin Nelson <colin@ifdevthentalk.com>
+# DESCRIPTION:	  Create the Discord application in a container
+# AUTHOR:		  Colin Nelson <colinnlsn@gmail.com>
 # COMMENTS:
 #	This file describes how to build the discord message client
 #	in a container with all dependencies installed.
@@ -27,7 +27,7 @@
 
 FROM ubuntu:xenial
 
-LABEL maintainer "Colin Nelson <colin@ifdevthentalk.com>"
+LABEL maintainer "Colin Nelson <colinnlsn@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -y \

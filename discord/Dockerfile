@@ -25,7 +25,7 @@
 #        discord
 #
 
-FROM ubuntu:xenial
+FROM debian:stretch-slim
 
 LABEL maintainer "Colin Nelson <colinnlsn@gmail.com>"
 

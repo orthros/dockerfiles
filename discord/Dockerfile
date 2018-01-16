@@ -60,9 +60,17 @@ RUN useradd --create-home --home-dir $HOME discord \
 
 WORKDIR $HOME
 
-RUN curl -Lo discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
+#RUN curl -Lo discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
 
-RUN dpkg -i discord.deb
+#RUN dpkg -i discord.deb
+
+RUN curl -Lo discord.tar.gz 'https://discordapp.com/api/download?platform=linux&format=tar.gz'
+
+RUN tar -xzf discord.tar.gz
+
+RUN ln -s $HOME/Discord/Discord /usr/bin/discord
+
+RUN rm discord.tar.gz
 
 USER discord
 

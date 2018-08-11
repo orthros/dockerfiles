@@ -31,6 +31,7 @@ LABEL maintainer "Colin Nelson <colinnlsn@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -y \
+        procps \
         ca-certificates \
         apt-transport-https \
         libgconf-2-4 \
@@ -53,6 +54,9 @@ RUN apt-get update && \
 
 RUN update-ca-certificates
 
+COPY run-discord-and-wait-for-exit /usr/local/bin
+
+
 # Add a user
 ENV HOME /home/discord
 RUN useradd --create-home --home-dir $HOME discord \
@@ -64,7 +68,7 @@ WORKDIR $HOME
 
 #RUN dpkg -i discord.deb
 
-RUN curl -Lo discord.tar.gz 'https://discordapp.com/api/download?platform=linux&format=tar.gz'
+RUN curl -sSLo discord.tar.gz 'https://discordapp.com/api/download?platform=linux&format=tar.gz'
 
 RUN tar -xzf discord.tar.gz
 
@@ -74,4 +78,5 @@ RUN rm discord.tar.gz
 
 USER discord
 
-CMD ["discord"]
+# Start Discord
+CMD ["run-discord-and-wait-for-exit"]

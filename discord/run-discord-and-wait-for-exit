@@ -1,0 +1,4 @@
+#!/bin/bash
+discord
+sleep 4
+while ps -C Discord >/dev/null;do sleep 4;done

@@ -36,11 +36,13 @@ RUN apt update && \
 				libsdl-ttf2.0-0 \
 				libopenal1 \
 				libsndfile1 \
-				libncursesw5 \
-				bzip2 \
-				curl
+				libncursesw5
 
 FROM BASE as BUILDER
+
+RUN apt install -y \
+				bzip2 \
+				curl
 
 RUN curl -LSsO http://www.bay12games.com/dwarves/df_${DF_VERSION}_linux.tar.bz2
 

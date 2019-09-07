@@ -1,5 +1,5 @@
 # DESCRIPTION:	  Create the Discord application in a container
-# AUTHOR:		  Colin Nelson <colinnlsn@gmail.com>
+# AUTHOR:		  Colin Nelson <colin@orthros.dev>
 # COMMENTS:
 #	This file describes how to build the discord message client
 #	in a container with all dependencies installed.
@@ -27,7 +27,7 @@
 
 FROM debian:stretch-slim
 
-LABEL maintainer "Colin Nelson <colinnlsn@gmail.com>"
+LABEL maintainer "Colin Nelson <colin@orthros.dev>"
 
 RUN apt-get update && \
     apt-get install -y \
